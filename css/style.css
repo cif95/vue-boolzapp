@@ -1,5 +1,5 @@
 body{
-	font-family: sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	background-color: #DADBD3;
 }
 
@@ -20,6 +20,12 @@ header{
 	font-size:.8rem;
 }
 
+.my-input{
+	font-size:.8rem;
+	border:1px solid #f5f5f5;
+}
+
+header div.user-profile img,
 header div.contact-info img{
 	border-radius:50%;
 	width:50px;
@@ -28,24 +34,26 @@ header div.contact-info img{
 
 main div.container{
 	top:20px;
-}
-
-section#chat-group{
-	left:0;
+	min-width:1140px;
 }
 
 main header{
-	border-right:1px solid rgb(199, 199, 199);
 	line-height: 7vh;
 }
 
+section#contacts{
+	left:0;
+}
 
+section#contacts header{
+border-right:1px solid rgb(199, 199, 199);
+}
 
-section#chat-group div.banner{
+section#contacts div.banner{
 	background-color: #8EDAFC;
 }
 
-section#chat-group div.banner div#bell-icon{
+section#contacts div.banner div#bell-icon{
 	width:50px;
 	height:50px;
 	text-align: center;
@@ -56,58 +64,95 @@ section#chat-group div.banner div#bell-icon{
 	background-color: white;
 }
 
-
-section#chat-group div.banner h5{
+section#contacts div.banner h5{
 	font-size:1rem;
 }
 
-section#chat-group div.banner span{
+section#contacts div.banner span{
 	color:grey;
 }
 
-section#chat-group div#search-bar{
+section#contacts div#search-bar{
 	background-color:#F1F1F1;
 }
 
-section#chat-group div#search-bar span#lens{
+section#contacts div#search-bar span#lens{
 	height:100%;
-}
-
-section#chat-group div#search-bar input{
-	font-size:.8rem;
-}
-
-section#chat-group div#search-bar input,
-section#chat-group div#search-bar span#lens{
 	border:1px solid #f5f5f5;
 }
 
-
-section#chat-group  div#chat-list div.chat-info img{
+section#contacts  div.contact-info img{
 	border-radius:50%;
 	width:60px;
 	height:60px;
 }
 
-section#current-chat{
+section#contacts ul{
+	height: calc(100% - 196px);
+}
+
+section#contacts ul li:hover{
+	background-color: #E9EBEB;
+}
+
+section#chat div.chat-history,
+section#contacts ul{
+	overflow-y: scroll;
+}
+
+section#chat{
 	right:0;
 }
 
-section#current-chat div.chat-wrapper{
-	background-image:url(../img/mine.jpg);
-	height:100%;
-}
-
-section#chat-group,
-section#current-chat{
+section#contacts,
+section#chat{
 	position:absolute;
 	height:95vh;
 	background-color: white;
 }
 
-section#chat-group header,
-section#current-chat header{
+section#contacts header,
+section#chat header{
 	height:7vh;
 	background-color: #EAEAEA;
 }
+
+section#chat div.chat-history{
+	height:calc(100% - 131px);
+	background-image:url(../img/mine.jpg);
+}
+
+section#chat div.chat-history div.chat-box{
+	height:50px;
+	width:35%;
+	font-size:.9rem;
+	padding:1rem;
+	margin-bottom:.7rem;
+	border-radius:10px;
+}
+
+section#chat div.chat-history div.chat-box span.message-time{
+	font-size:.65rem;
+	color:grey;
+	right:.5rem;
+	bottom:.1rem;
+}
+
+section#chat div.chat-history div.chat-box.received{
+	background-color: white;
+}
+
+section#chat div.chat-history div.chat-box.sent{
+	background-color: #D5F9BA;
+	float:right;
+}
+
+section#chat div#new-message-input{
+	background-color: #F3EEEA;
+}
+
+section#chat div#new-message-input input{
+	height:50px;
+}
+
 

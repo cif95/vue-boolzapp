@@ -11,7 +11,7 @@
 	<!-- google font -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
 	<!-- vue js -->
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 	<!-- custom css stylesheet  -->
@@ -24,20 +24,23 @@
 		<main>
 			<div class="container position-absolute start-0 end-0 bottom-0">
 				<div class="row justify-content-center">
-					<section id="chat-group" class="col-5 p-0">
+					<!-- contacts section -->
+					<section id="contacts" class="col-5 p-0">
+						<!-- user profile -->
 						<header>
 							<div class="d-flex justify-content-between px-3 border-right">
-								<div class="contact-info">
-									<img src="img/avatar_1.jpg" alt="avatar image">
+								<div class="user-profile">
+									<img src="img/avatar_1.jpg" alt="name avatar image">
 									<h6 class="d-inline">Name</h6>
 								</div>
-								<div id="icons" class="my-text-grey fs-5">
-									<i class="fa-solid fa-circle-notch me-2"></i>
-									<i class="fa-solid fa-message me-2"></i>
-									<i class="fa-solid fa-ellipsis-vertical me-2"></i>
+								<div class="settings my-text-grey fs-5">
+									<i class="fa-solid fa-circle-notch me-3"></i>
+									<i class="fa-solid fa-message me-3"></i>
+									<i class="fa-solid fa-ellipsis-vertical me-3"></i>
 								</div>
 							</div>
 						</header>
+						<!-- banner notification -->
 						<div class="banner p-3 d-flex">
 							<div id="bell-icon">
 								<i class="fa-solid fa-bell-slash"></i>
@@ -47,17 +50,20 @@
 								<span class="text-decoration-underline my-fs-xsmall">Attiva notifiche desktop</span>
 							</div>
 						</div>
-						<div id="search-bar" class="p-2 input-group mb-3">
+						<!-- search bar -->
+						<div id="search-bar" class="p-2 input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text bg-white px-4 my-text-grey" id="lens">
-									<i class="fa-solid fa-magnifying-glass "></i>
+									<i class="fa-solid fa-magnifying-glass"></i>
 								</span>
 							</div>
-							<input class="form-control" type="text" placeholder="Cerca o inizia una nuova chat">
+							<input class="form-control my-input" type="text" placeholder="Cerca o inizia una nuova chat">
 						</div>
-						<div id="chat-list" class="px-4 ">
-							<div class="chat d-flex justify-content-between my-3">
-								<div class="chat-info my-lh-small  d-flex">
+						<!-- contact list -->
+						<ul class="list-unstyled">
+		
+							<li class="contact d-flex justify-content-between p-3 border-bottom">
+								<div class="contact-info my-lh-small  d-flex">
 									<img src="img/avatar_1.jpg" alt="avatar image">
 									<div class="ms-4">
 										<h6>Name</h6>
@@ -65,9 +71,10 @@
 									</div>
 								</div>
 								<span class="my-text-grey my-fs-xsmall">12:00</span>
-							</div>
-							<div class="chat d-flex justify-content-between my-3">
-								<div class="chat-info my-lh-small  d-flex">
+							</li>
+
+							<li class="contact d-flex justify-content-between p-3 border-bottom">
+								<div class="contact-info my-lh-small d-flex">
 									<img src="img/avatar_1.jpg" alt="avatar image">
 									<div class="ms-4">
 										<h6>Name</h6>
@@ -75,24 +82,53 @@
 									</div>
 								</div>
 								<span class="my-text-grey my-fs-xsmall">12:00</span>
-							</div>
-						</div>
+							</li>
+
+
+						</ul>
 					</section>
-					<section id="current-chat" class="col-7 p-0">
+					<!-- / contacts section -->
+					<!-- current chat section -->
+					<section id="chat" class="col-7 p-0">
 						<header>
-							<div class="d-flex justify-content-between px-3 border-right">
-								<div class="contact-info">
+							<div class="d-flex justify-content-between px-3">
+								<!-- contact info -->
+								<div class="contact-info d-flex align-items-center">
 									<img src="img/avatar_1.jpg" alt="avatar image">
-									<h6 class="d-inline">Name</h6>
+									<div class="ms-4 my-lh-small">
+										<h6>Name</h6>
+										<p class="my-text-grey my-fs-xsmall">Ultimo accesso</p>
+									</div>
 								</div>
-								<div id="icons" class="my-text-grey fs-5">
-									<i class="fa-solid fa-magnifying-glass me-2"></i>
-									<i class="fa-solid fa-paperclip me-2"></i>
-									<i class="fa-solid fa-ellipsis-vertical me-2"></i>
+								<!-- chat settings -->
+								<div class="settings my-text-grey fs-5">
+									<i class="fa-solid fa-magnifying-glass me-3"></i>
+									<i class="fa-solid fa-paperclip me-3"></i>
+									<i class="fa-solid fa-ellipsis-vertical me-3"></i>
 								</div>
 							</div>
 						</header>
-						<div class="chat-wrapper"></div>
+						<!-- current chat history -->
+						<div class="chat-history p-5">
+							<div class="message clearfix">
+								<div class="chat-box received position-relative">
+									<p>Received message</p>
+									<span class="message-time position-absolute">16:00</span>
+								</div>
+							</div>
+							<div class="message clearfix">
+								<div class="chat-box sent position-relative">
+									<p>Sent message</p>
+									<span class="message-time position-absolute">16:30</span>
+								</div>
+							</div>
+						</div>
+						<!-- new message input -->
+						<div id="new-message-input" class="p-2 d-flex align-items-center text-secondary">
+							<i class="fa-solid fa-face-smile mx-4  fs-5"></i>
+							<input class="form-control my-input" type="text" placeholder="Scrivi un messaggio">
+							<i class="fa-solid fa-microphone mx-4 fs-5"></i>
+						</div>
 					</section>
 				</div>
 			</div>
