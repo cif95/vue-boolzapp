@@ -26,21 +26,73 @@
 				<div class="row justify-content-center">
 					<section id="chat-group" class="col-5 p-0">
 						<header>
-							<div class="d-flex justify-content-between">
-								<div id="contact-info">
-									<img src="img/avatar.png" alt="avatar image">
+							<div class="d-flex justify-content-between px-3 border-right">
+								<div class="contact-info">
+									<img src="img/avatar_1.jpg" alt="avatar image">
 									<h6 class="d-inline">Name</h6>
 								</div>
-								<div id="input-group" class="my-text-grey me-3 fs-5">
+								<div id="icons" class="my-text-grey fs-5">
 									<i class="fa-solid fa-circle-notch me-2"></i>
 									<i class="fa-solid fa-message me-2"></i>
 									<i class="fa-solid fa-ellipsis-vertical me-2"></i>
 								</div>
 							</div>
 						</header>
+						<div class="banner p-3 d-flex">
+							<div id="bell-icon">
+								<i class="fa-solid fa-bell-slash"></i>
+							</div>
+							<div class="banner-text p-2 my-lh-small">
+								<h5>Ricevi notifiche di nuovi messaggi</h5>
+								<span class="text-decoration-underline my-fs-xsmall">Attiva notifiche desktop</span>
+							</div>
+						</div>
+						<div id="search-bar" class="p-2 input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-white px-4 my-text-grey" id="lens">
+									<i class="fa-solid fa-magnifying-glass "></i>
+								</span>
+							</div>
+							<input class="form-control" type="text" placeholder="Cerca o inizia una nuova chat">
+						</div>
+						<div id="chat-list" class="px-4 ">
+							<div class="chat d-flex justify-content-between my-3">
+								<div class="chat-info my-lh-small  d-flex">
+									<img src="img/avatar_1.jpg" alt="avatar image">
+									<div class="ms-4">
+										<h6>Name</h6>
+										<p class="my-text-grey my-fs-xsmall">Ultimo messaggio inviato</p>
+									</div>
+								</div>
+								<span class="my-text-grey my-fs-xsmall">12:00</span>
+							</div>
+							<div class="chat d-flex justify-content-between my-3">
+								<div class="chat-info my-lh-small  d-flex">
+									<img src="img/avatar_1.jpg" alt="avatar image">
+									<div class="ms-4">
+										<h6>Name</h6>
+										<p class="my-text-grey my-fs-xsmall">Ultimo messaggio inviato</p>
+									</div>
+								</div>
+								<span class="my-text-grey my-fs-xsmall">12:00</span>
+							</div>
+						</div>
 					</section>
 					<section id="current-chat" class="col-7 p-0">
-						<header></header>
+						<header>
+							<div class="d-flex justify-content-between px-3 border-right">
+								<div class="contact-info">
+									<img src="img/avatar_1.jpg" alt="avatar image">
+									<h6 class="d-inline">Name</h6>
+								</div>
+								<div id="icons" class="my-text-grey fs-5">
+									<i class="fa-solid fa-magnifying-glass me-2"></i>
+									<i class="fa-solid fa-paperclip me-2"></i>
+									<i class="fa-solid fa-ellipsis-vertical me-2"></i>
+								</div>
+							</div>
+						</header>
+						<div class="chat-wrapper"></div>
 					</section>
 				</div>
 			</div>
