@@ -1,0 +1,36 @@
+body{
+	font-family: sans-serif;
+	background-color: #DADBD3;
+}
+
+header{
+	height:15vh;
+	background-color: #009688;
+}
+
+main div.container{
+	top:20px;
+}
+
+section#chat-group{
+	left:0;
+}
+
+section#current-chat{
+	right:0;
+}
+
+section#chat-group,
+section#current-chat{
+	position:absolute;
+	height:95vh;
+	border:1px solid rgb(161, 161, 161);
+	background-color: white;
+}
+
+section#chat-group header,
+section#current-chat header{
+	height:7vh;
+	background-color: #EAEAEA;
+}
+
