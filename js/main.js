@@ -20,7 +20,6 @@
 const app = new Vue({
 	el:'#app',
 	data: {
-		
 		contacts: [
 			{
 				name: 'Michele',
@@ -185,11 +184,35 @@ const app = new Vue({
 			}
 		],
 		currentIndex: 0,
+		newMessage:''
 	},
 	methods: {
 		updateChat(index){
 			this.currentIndex = index;
+		},
+
+		sendNewMessage(string, index){
+			let messagesArray = this.contacts[index].messages;
+			const chatMsg = {
+				date: '10/01/2020 15:51:00',
+				message: string,
+				status: 'sent'
+			}
+			messagesArray.push(chatMsg);
+
+			const answer = {
+				date: '10/01/2020 15:51:01',
+				message: 'Ok',
+				status: 'received'
+			}
+			
+			setTimeout(function(){
+				messagesArray.push(answer);
+			}, 1000);
+			this.newMessage = '';
 		}
+
+
 	}
 });
 

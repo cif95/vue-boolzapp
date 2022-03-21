@@ -112,7 +112,7 @@
 						<!-- new message input -->
 						<div id="new-message-input" class="p-2 d-flex align-items-center text-secondary">
 							<i class="fa-solid fa-face-smile mx-4  fs-5"></i>
-							<input class="form-control my-input" type="text" placeholder="Scrivi un messaggio">
+							<input @keydown.enter="sendNewMessage(newMessage, currentIndex)" v-model="newMessage" class="form-control my-input" type="text" placeholder="Scrivi un messaggio">
 							<i class="fa-solid fa-microphone mx-4 fs-5"></i>
 						</div>
 					</section>
