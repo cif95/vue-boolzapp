@@ -182,6 +182,7 @@ const app = new Vue({
 			}
 		],
 		currentIndex: 0,
+		searchContact:'',
 		newMessage:''
 	},
 	methods: {
@@ -209,9 +210,15 @@ const app = new Vue({
 				}, 1000);
 				this.newMessage = '';
 			}
-		}
+		},
 
-		
+		isActive(index){
+			if (index == this.currentIndex) return true;
+		},
+
+		isValid(element, string){
+			if (string == '' || element.name.toLowerCase().includes(string) ) return true 
+		}
 	}
 });
 

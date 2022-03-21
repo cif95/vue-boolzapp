@@ -30,8 +30,8 @@
 						<header>
 							<div class="d-flex justify-content-between px-3 border-right">
 								<div class="user-profile">
-									<img src="img/avatar_1.jpg" alt="name avatar image">
-									<h6 class="d-inline">Name</h6>
+									<img src="img/avatar_io.jpg" alt="name avatar image">
+									<h6 class="d-inline">Viviana</h6>
 								</div>
 								<div class="settings my-text-grey fs-5">
 									<i class="fa-solid fa-circle-notch me-3"></i>
@@ -57,12 +57,12 @@
 									<i class="fa-solid fa-magnifying-glass"></i>
 								</span>
 							</div>
-							<input class="form-control my-input" type="text" placeholder="Cerca o inizia una nuova chat">
+							<input v-model="searchContact" class="form-control my-input" type="text" placeholder="Cerca o inizia una nuova chat">
 						</div>
 						<!-- contact list -->
 						<ul class="list-unstyled">
 		
-							<li @click="updateChat(index)" v-for="(contact, index) in contacts" class="contact d-flex justify-content-between p-3 border-bottom">
+							<li v-if="isValid(contact, searchContact)" @click="updateChat(index)" v-for="(contact, index) in contacts" class="contact d-flex justify-content-between p-3 border-bottom">
 								<div class="contact-info my-lh-small d-flex">
 									<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
 									<div class="ms-4">
@@ -81,7 +81,7 @@
 						<header>
 							<div class="d-flex justify-content-between px-3">
 								<!-- contact info -->
-									<div v-if="index == currentIndex" v-for="(contact, index) in contacts" class="contact-info d-flex align-items-center">
+									<div v-if="isActive(index)" v-for="(contact, index) in contacts" class="contact-info d-flex align-items-center">
 										<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
 										<div class="ms-4 my-lh-small">
 											<h6>{{contact.name}}</h6>
@@ -100,7 +100,7 @@
 
 						<div  class="chat-history p-5">
 							<div v-for="(contact, index) in contacts">
-								<div v-if="index == currentIndex" v-for="element in contact.messages" class="message clearfix">
+								<div v-if="isActive(index)" v-for="element in contact.messages" class="message clearfix">
 									<div class="chat-box position-relative received" :class="(element.status === 'sent') ? 'sent' : 'received' " >
 										<p>{{element.message}}</p>
 										<span class="message-time position-absolute">{{element.date}}</span>
