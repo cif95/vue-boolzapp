@@ -20,6 +20,7 @@
 const app = new Vue({
 	el:'#app',
 	data: {
+		
 		contacts: [
 			{
 				name: 'Michele',
@@ -182,11 +183,14 @@ const app = new Vue({
 					}
 				],
 			}
-		]
+		],
+		currentIndex: 0,
 	},
 	methods: {
-		
-		
+		updateChat(index){
+			this.currentIndex = index;
+			console.log(this.currentIndex);
+		}
 	}
 });
 

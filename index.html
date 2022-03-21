@@ -62,11 +62,11 @@
 						<!-- contact list -->
 						<ul class="list-unstyled">
 		
-							<li v-for="(el, index) in contacts" class="contact d-flex justify-content-between p-3 border-bottom">
+							<li @click="updateChat(index)" v-for="(contact, index) in contacts" class="contact d-flex justify-content-between p-3 border-bottom">
 								<div class="contact-info my-lh-small d-flex">
-									<img :src="`img/avatar${el.avatar}.jpg`" :alt="`${el.name} image`">
+									<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
 									<div class="ms-4">
-										<h6>{{el.name}}</h6>
+										<h6>{{contact.name}}</h6>
 										<p class="my-text-grey my-fs-xsmall">Ultimo messaggio inviato</p>
 									</div>
 								</div>
@@ -84,7 +84,7 @@
 								<div class="contact-info d-flex align-items-center">
 									<img src="img/avatar_1.jpg" alt="avatar image">
 									<div class="ms-4 my-lh-small">
-										<h6>Name</h6>
+										<h6>{{contacts[0].name}}</h6>
 										<p class="my-text-grey my-fs-xsmall">Ultimo accesso</p>
 									</div>
 								</div>
@@ -97,20 +97,18 @@
 							</div>
 						</header>
 						<!-- current chat history -->
-						<div class="chat-history p-5">
-							<div class="message clearfix">
-								<div class="chat-box received position-relative">
-									<p>Received message</p>
-									<span class="message-time position-absolute">16:00</span>
-								</div>
-							</div>
-							<div class="message clearfix">
-								<div class="chat-box sent position-relative">
-									<p>Sent message</p>
-									<span class="message-time position-absolute">16:30</span>
+
+						<div  class="chat-history p-5">
+							<div v-for="(contact, index) in contacts">
+								<div v-show="index == currentIndex" v-for="element in contact.messages" class="message clearfix">
+									<div class="chat-box position-relative received" :class="(element.status === 'sent') ? 'sent' : 'received' " >
+										<p>{{element.message}}</p>
+										<span class="message-time position-absolute">{{element.date}}</span>
+									</div>
 								</div>
 							</div>
 						</div>
+						
 						<!-- new message input -->
 						<div id="new-message-input" class="p-2 d-flex align-items-center text-secondary">
 							<i class="fa-solid fa-face-smile mx-4  fs-5"></i>

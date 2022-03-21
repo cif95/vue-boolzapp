@@ -123,8 +123,7 @@ section#chat div.chat-history{
 }
 
 section#chat div.chat-history div.chat-box{
-	height:50px;
-	width:35%;
+	width:40%;
 	font-size:.9rem;
 	padding:1rem;
 	margin-bottom:.7rem;
