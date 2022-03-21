@@ -81,13 +81,13 @@
 						<header>
 							<div class="d-flex justify-content-between px-3">
 								<!-- contact info -->
-								<div class="contact-info d-flex align-items-center">
-									<img src="img/avatar_1.jpg" alt="avatar image">
-									<div class="ms-4 my-lh-small">
-										<h6>{{contacts[0].name}}</h6>
-										<p class="my-text-grey my-fs-xsmall">Ultimo accesso</p>
+									<div v-if="index == currentIndex" v-for="(contact, index) in contacts" class="contact-info d-flex align-items-center">
+										<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
+										<div class="ms-4 my-lh-small">
+											<h6>{{contact.name}}</h6>
+											<p class="my-text-grey my-fs-xsmall">Ultimo accesso</p>
+										</div>
 									</div>
-								</div>
 								<!-- chat settings -->
 								<div class="settings my-text-grey fs-5">
 									<i class="fa-solid fa-magnifying-glass me-3"></i>
@@ -100,7 +100,7 @@
 
 						<div  class="chat-history p-5">
 							<div v-for="(contact, index) in contacts">
-								<div v-show="index == currentIndex" v-for="element in contact.messages" class="message clearfix">
+								<div v-if="index == currentIndex" v-for="element in contact.messages" class="message clearfix">
 									<div class="chat-box position-relative received" :class="(element.status === 'sent') ? 'sent' : 'received' " >
 										<p>{{element.message}}</p>
 										<span class="message-time position-absolute">{{element.date}}</span>

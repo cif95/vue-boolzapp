@@ -189,7 +189,6 @@ const app = new Vue({
 	methods: {
 		updateChat(index){
 			this.currentIndex = index;
-			console.log(this.currentIndex);
 		}
 	}
 });
