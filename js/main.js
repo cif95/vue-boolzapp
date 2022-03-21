@@ -15,8 +15,6 @@
 
 
 
-
-
 const app = new Vue({
 	el:'#app',
 	data: {
@@ -198,21 +196,22 @@ const app = new Vue({
 				message: string,
 				status: 'sent'
 			}
-			messagesArray.push(chatMsg);
-
-			const answer = {
-				date: '10/01/2020 15:51:01',
-				message: 'Ok',
-				status: 'received'
+			if ( string !== '') {
+				messagesArray.push(chatMsg);
+				const answer = {
+					date: '10/01/2020 15:51:01',
+					message: 'Ok',
+					status: 'received'
+				}
+	
+				setTimeout(function(){
+					messagesArray.push(answer);
+				}, 1000);
+				this.newMessage = '';
 			}
-			
-			setTimeout(function(){
-				messagesArray.push(answer);
-			}, 1000);
-			this.newMessage = '';
 		}
 
-
+		
 	}
 });
 
