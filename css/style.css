@@ -8,12 +8,24 @@ header{
 	background-color: #009688;
 }
 
+.my-text-grey{
+	color:#B1B1B1;
+}
+
 main div.container{
 	top:20px;
 }
 
 section#chat-group{
 	left:0;
+}
+
+section#chat-group header{
+	line-height: 7vh;
+}
+
+section#chat-group  header div#contact-info img{
+	width:100px;
 }
 
 section#current-chat{
@@ -24,7 +36,6 @@ section#chat-group,
 section#current-chat{
 	position:absolute;
 	height:95vh;
-	border:1px solid rgb(161, 161, 161);
 	background-color: white;
 }
 
