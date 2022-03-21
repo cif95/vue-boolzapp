@@ -62,28 +62,16 @@
 						<!-- contact list -->
 						<ul class="list-unstyled">
 		
-							<li class="contact d-flex justify-content-between p-3 border-bottom">
-								<div class="contact-info my-lh-small  d-flex">
-									<img src="img/avatar_1.jpg" alt="avatar image">
-									<div class="ms-4">
-										<h6>Name</h6>
-										<p class="my-text-grey my-fs-xsmall">Ultimo messaggio inviato</p>
-									</div>
-								</div>
-								<span class="my-text-grey my-fs-xsmall">12:00</span>
-							</li>
-
-							<li class="contact d-flex justify-content-between p-3 border-bottom">
+							<li v-for="(el, index) in contacts" class="contact d-flex justify-content-between p-3 border-bottom">
 								<div class="contact-info my-lh-small d-flex">
-									<img src="img/avatar_1.jpg" alt="avatar image">
+									<img :src="`img/avatar${el.avatar}.jpg`" :alt="`${el.name} image`">
 									<div class="ms-4">
-										<h6>Name</h6>
+										<h6>{{el.name}}</h6>
 										<p class="my-text-grey my-fs-xsmall">Ultimo messaggio inviato</p>
 									</div>
 								</div>
 								<span class="my-text-grey my-fs-xsmall">12:00</span>
 							</li>
-
 
 						</ul>
 					</section>
