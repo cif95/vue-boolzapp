@@ -34,9 +34,9 @@
 									<h6 class="d-inline">Viviana</h6>
 								</div>
 								<div class="settings my-text-grey fs-5">
-									<i class="fa-solid fa-circle-notch me-3"></i>
-									<i class="fa-solid fa-message me-3"></i>
-									<i class="fa-solid fa-ellipsis-vertical me-3"></i>
+									<i class="fa-solid fa-circle-notch"></i>
+									<i class="fa-solid fa-message mx-3"></i>
+									<i class="fa-solid fa-ellipsis-vertical"></i>
 								</div>
 							</div>
 						</header>
@@ -61,7 +61,7 @@
 						</div>
 						<!-- contacts list -->
 
-						<ul class="list-unstyled">
+						<ul class="contacts list-unstyled">
 							<li :class="{ 'd-flex' : isValid(contact, searchInput) }" @click="updateChat(index)" v-for="(contact, index) in contacts" class="contact justify-content-between p-3 border-bottom">
 								<div class="contact-info my-lh-small d-flex">
 									<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
@@ -81,31 +81,37 @@
 						<header>
 							<!-- current contact info  -->
 							<div class="d-flex justify-content-between px-3">
-								<div :class="(isActive(index)) ? 'd-flex' : '' " v-for="(contact, index) in contacts" class="contact-info align-items-center">
-									<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
+								<div class="contact-info d-flex align-items-center">
+									<img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="`${contacts[currentIndex].name} image`">
 									<div class="ms-4 my-lh-small">
-										<h6>{{contact.name}}</h6>
+										<h6>{{contacts[currentIndex].name}}</h6>
 										<p class="my-text-grey my-fs-xsmall">Ultimo accesso</p>
 									</div>
 								</div>
-
 								<!-- chat settings -->
 								<div class="settings my-text-grey fs-5">
-									<i class="fa-solid fa-magnifying-glass me-3"></i>
-									<i class="fa-solid fa-paperclip me-3"></i>
-									<i class="fa-solid fa-ellipsis-vertical me-3"></i>
+									<i class="fa-solid fa-magnifying-glass"></i>
+									<i class="fa-solid fa-paperclip mx-3"></i>
+									<i class="fa-solid fa-ellipsis-vertical"></i>
 								</div>
 							</div>
 						</header>
 
+						<!-- <div v-for="(contact, index) in contacts">
+							<div :class="{ 'd-block' : isActive(index) }" v-for="element in contact.messages" class="message clearfix">
+								<div class="message-box position-relative received" :class="(element.status === 'sent') ? 'sent' : 'received' " >
+									<p>{{element.message}}</p>
+									<span class="message-time position-absolute">{{element.date}}</span>
+								</div>
+							</div>
+						</div> -->
+
 						<!-- current chat history -->
 						<div  class="chat-history p-5">
-							<div v-for="(contact, index) in contacts">
-								<div :class="{ 'd-block' : isActive(index) }" v-for="element in contact.messages" class="message clearfix">
-									<div class="message-box position-relative received" :class="(element.status === 'sent') ? 'sent' : 'received' " >
-										<p>{{element.message}}</p>
-										<span class="message-time position-absolute">{{element.date}}</span>
-									</div>
+							<div v-for="el in contacts[currentIndex].messages" class="message clearfix">
+								<div :class="(el.status === 'sent') ? 'sent' : 'received' " class="message-box position-relative">
+									<p>{{el.message}}</p>
+									<span class="message-time position-absolute">{{el.date}}</span>
 								</div>
 							</div>
 						</div>
