@@ -182,7 +182,7 @@ const app = new Vue({
 			}
 		],
 		currentIndex: 0,
-		searchContact:'',
+		searchInput:'',
 		newMessage:''
 	},
 	methods: {
@@ -192,13 +192,13 @@ const app = new Vue({
 
 		sendNewMessage(string, index){
 			let messagesArray = this.contacts[index].messages;
-			const chatMsg = {
+			const newMsg = {
 				date: '10/01/2020 15:51:00',
 				message: string,
 				status: 'sent'
 			}
 			if ( string !== '') {
-				messagesArray.push(chatMsg);
+				messagesArray.push(newMsg);
 				const answer = {
 					date: '10/01/2020 15:51:01',
 					message: 'Ok',
