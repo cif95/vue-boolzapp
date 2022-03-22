@@ -38,16 +38,16 @@ main header{
 	line-height: 7vh;
 }
 
-section#contacts{
+section#sidebar{
 	width:35%;
 }
 
-section#contacts div.banner{
+section#sidebar div.banner{
 	height:80px;
 	background-color: #8EDAFC;
 }
 
-section#contacts div.banner div#bell-icon{
+section#sidebar div.banner div#bell-icon{
 	width:50px;
 	height:50px;
 	text-align: center;
@@ -58,70 +58,73 @@ section#contacts div.banner div#bell-icon{
 	background-color: white;
 }
 
-section#contacts div.banner h5{
+section#sidebar div.banner h5{
 	font-size:1rem;
 }
 
-section#contacts div.banner span{
+section#sidebar div.banner span{
 	color:grey;
 }
 
-section#contacts div#search-bar{
+section#sidebar div#search-bar{
 	height:50px;
 	background-color:#F1F1F1;
 }
 
-section#contacts div#search-bar span#lens{
+section#sidebar div#search-bar span#lens{
 	height:100%;
 	border:1px solid #f5f5f5;
 }
 
-section#contacts  div.contact-info img{
+section#sidebar  div.contact-info img{
 	border-radius:50%;
 	width:60px;
 	height:60px;
 }
 
-section#contacts ul#contacts{
+section#sidebar ul#contacts{
 	height: calc(100% - 7vh - 130px);
 }
 
-section#contacts ul#contacts li.contact{
+section#sidebar ul#contacts li.contact{
 	display:none;
 }
 
-section#contacts ul#contacts li.contact.active{
+section#sidebar ul#contacts li.contact.active{
 	background-color:#E9EBEB;
 }
 
-section#contacts ul#contacts li.contact:hover{
-	background-color: #f0f0f0;
+section#sidebar ul#contacts li.contact:hover{
+	background-color: #f9f9f9;
 }
 
 section#chat div.chat-history,
-section#contacts ul{
+section#sidebar ul{
 	overflow-y: scroll;
+	scrollbar-width: thin;
+	scrollbar-color: rgb(209, 209, 209) rgb(243, 243, 243);
 }
 
-section#contacts,
+section#sidebar,
 section#chat{
 	float:left;
 	height:95vh;
 	background-color: white;
 }
 
-section#contacts header,
+section#sidebar header,
 section#chat header{
 	height:7vh;
 	background-color: #EAEAEA;
 }
 
-section#chat header{
-	border-left:1px solid rgb(209, 209, 209);
-}
 
 section#chat{
 	width:65%;
+}
+
+section#chat header{
+	border-left:1px solid rgb(209, 209, 209);
 }
 
 section#chat div.chat-history{
@@ -138,14 +141,20 @@ section#chat div.chat-history div.message-box{
 	border-radius:10px;
 }
 
+div.message-box:hover i.my-dropdown-icon{
+	display: block;
+}
+
 div.message-box i.my-dropdown-icon{
+	display: none;
 	right:.7rem;
 }
 
 div.message-box ul.my-dropdown-menu{
-	right: 7px;
-	top: 40px;
+	left:50%;
+	top: 50%;
 	padding:1rem;
+	z-index:1;
 	font-size:.75rem;
 	position:absolute;
 	border-radius: 15px;
@@ -155,13 +164,14 @@ div.message-box ul.my-dropdown-menu{
 }
 
 div.message-box ul.my-dropdown-menu li{
-	border-bottom:1px solid transparent
+	border-bottom:1px solid transparent;
 }
 
 div.message-box ul.my-dropdown-menu li:hover{
 	border-color:#e7e7e7;
 }
 
+section#chat div.settings i.fa-magnifying-glass,
 div.message-box ul.my-dropdown-menu li:last-child,
 div.message-box i.my-dropdown-icon{
 	cursor:pointer;

@@ -181,8 +181,10 @@ const app = new Vue({
 			}
 		],
 		currentIndex: 0,
-		searchInput:'',
-		newMessage:''
+		searchContact:'',
+		searchMessage:'',
+		newMessage:'',
+		isClicked: false,
 	},
 	methods: {
 		updateContact(index){
@@ -212,19 +214,30 @@ const app = new Vue({
 				this.newMessage = '';
 			}
 		},
-
-		isValid(element, string){
+		// function that checks and return true if a string matches with a contact name
+		isNameValid(element, string){
 			if (string == '' || element.name.toLowerCase().includes(string) || element.name.toUpperCase().includes(string) ) return true 
 		},
-
+		// function that checks and return true if a string matches with a contact message text
+		isMessageValid(element, string){
+			if (string == '' || element.message.toLowerCase().includes(string) || element.message.toUpperCase().includes(string) ) return true 
+		},
+		// function that toggles display-none of dropdowns (as brother of event target)
 		toggleDropdown(event){
 			event.target.parentNode.lastChild.classList.toggle('d-none');
 		},
+		// function that adds display-none of dropdowns (as event target)
 		closeDropdown(event){
 			event.target.classList.add('d-none');
 		},
+		// function that deletes a message (as a parent element)
 		deleteMessage(event){
 			event.target.parentNode.parentElement.classList.add('d-none');
+		},
+		// function that toggles isClicked value and returns true, if it's true
+		checkClick(){
+			this.isClicked = !this.isClicked;
+			if (this.isClicked) return true;
 		}
 	}
 });

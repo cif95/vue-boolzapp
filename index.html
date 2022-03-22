@@ -22,11 +22,11 @@
 	<main id="app">
 		<div class="my-container pt-4">
 			<div class="row justify-content-center clearfix">
-				<!-- contacts section -->
-				<section id="contacts" class="col-5 p-0">
+				<!-- sidebar -->
+				<section id="sidebar" class="col-5 p-0">
 					<!-- user profile -->
 					<header>
-						<div class="d-flex justify-content-between px-3 border-right">
+						<div class="d-flex justify-content-between px-3">
 							<div class="user-profile">
 								<img src="img/avatar_io.jpg" alt="my avatar image">
 								<h6 class="d-inline">Viviana</h6>
@@ -55,13 +55,11 @@
 								<i class="fa-solid fa-magnifying-glass"></i>
 							</span>
 						</div>
-						<input v-model="searchInput" class="form-control my-input" type="text" placeholder="Cerca o inizia una nuova chat">
+						<input v-model="searchContact" class="form-control my-input" type="text" placeholder="Cerca o inizia una nuova chat">
 					</div>
 					<!-- contacts list -->
-
 					<ul id="contacts" class="list-unstyled">
-
-						<li :class="{ 'd-flex' : isValid(contact, searchInput), 'active' : isActive(index) }" @click="updateContact(index)" v-for="(contact, index) in contacts" class="contact justify-content-between p-3 border-bottom">
+						<li :class="{ 'd-flex' : isNameValid(contact, searchContact), 'active' : isActive(index) }" @click="updateContact(index)" v-for="(contact, index) in contacts" class="contact justify-content-between p-3 border-bottom">
 							<div class="contact-info d-flex">
 								<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
 								<div class="ms-4">
@@ -72,10 +70,8 @@
 							<span class="my-text-grey my-fs-xsmall">{{contact.messages[contact.messages.length-1].date}}</span>
 						</li>
 					</ul>
-
 				</section>
-				<!-- / contacts section -->
-
+				<!-- / sidebar -->
 				<!-- current chat section -->
 				<section id="chat" class="col-7 p-0">
 					<header>
@@ -85,12 +81,13 @@
 								<img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="`${contacts[currentIndex].name} image`">
 								<div class="ms-4 my-lh-small">
 									<h6>{{contacts[currentIndex].name}}</h6>
-									<p class="my-text-grey my-fs-xsmall m-0">Ultimo accesso</p>
+									<p class="my-text-grey my-fs-xsmall m-0">Ultimo accesso oggi alle 12:00</p>
 								</div>
 							</div>
 							<!-- chat settings -->
 							<div class="settings my-text-grey fs-5">
-								<i class="fa-solid fa-magnifying-glass"></i>
+								<i @click="checkClick" class="fa-solid fa-magnifying-glass"></i>
+								<input v-if="isClicked" v-model="searchMessage" class="my-input h-50 ms-2 rounded-2" type="text" placeholder="cerca messaggi nella chat">
 								<i class="fa-solid fa-paperclip mx-3"></i>
 								<i class="fa-solid fa-ellipsis-vertical"></i>
 							</div>
@@ -98,9 +95,9 @@
 					</header>
 					<!-- current chat history -->
 					<div  class="chat-history p-5">
-						<div v-for="(el, i) in contacts[currentIndex].messages" class="message clearfix">
+						<div v-for="(el, i) in contacts[currentIndex].messages" class="message clearfix" :class="(isMessageValid(el, searchMessage)) ? 'd-block' : 'd-none'">
 							<div :class="(el.status === 'sent') ? 'sent' : 'received' " class="message-box position-relative">
-								<i @click="toggleDropdown" class="my-dropdown-icon position-absolute text-secondary fa-solid fa-caret-down"></i>
+								<i @click="toggleDropdown" class="my-dropdown-icon position-absolute text-secondary fa-solid fa-chevron-down"></i>
 								<p>{{el.message}}</p>
 								<span class="message-time position-absolute">{{el.date}}</span>
 								<ul @mouseleave="closeDropdown" class="my-dropdown-menu d-none">
@@ -110,10 +107,9 @@
 							</div>
 						</div>
 					</div>
-					
 					<!-- new message input -->
 					<div id="send-message-bar" class="p-2 d-flex align-items-center text-secondary">
-						<i class="fa-solid fa-face-smile mx-4  fs-5"></i>
+						<i class="fa-solid fa-face-smile mx-4 fs-5"></i>
 						<input @keydown.enter="sendNewMessage(newMessage, currentIndex)" v-model="newMessage" class="form-control my-input" type="text" placeholder="Scrivi un messaggio">
 						<i class="fa-solid fa-microphone mx-4 fs-5"></i>
 					</div>
