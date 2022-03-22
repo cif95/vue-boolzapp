@@ -212,9 +212,8 @@ const app = new Vue({
 			}
 		},
 
-
 		isValid(element, string){
-			if (string == '' || element.name.toLowerCase().includes(string) ) return true 
+			if (string == '' || element.name.toLowerCase().includes(string) || element.name.toUpperCase().includes(string) ) return true 
 		}
 	}
 });
