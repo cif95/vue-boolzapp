@@ -1,11 +1,7 @@
 body{
 	font-family: 'Montserrat', sans-serif;
-	background-color: #DADBD3;
-}
-
-header{
-	height:15vh;
-	background-color: #009688;
+	height:100vh;
+	background: linear-gradient(180deg, #009688 15%, #DADBD3 15%);
 }
 
 .my-text-grey{
@@ -25,8 +21,6 @@ header{
 	border:1px solid #f5f5f5;
 }
 
-
-
 header div.user-profile img,
 header div.contact-info img{
 	border-radius:50%;
@@ -34,9 +28,10 @@ header div.contact-info img{
 	height:50px;
 }
 
-main div.container{
-	top:20px;
-	min-width:1140px;
+main div.my-container{
+	margin:0 auto;
+	width:80%;
+	min-width:1000px;
 }
 
 main header{
@@ -44,7 +39,7 @@ main header{
 }
 
 section#contacts{
-	left:0;
+	width:35%;
 }
 
 section#contacts header{
@@ -52,6 +47,7 @@ border-right:1px solid rgb(199, 199, 199);
 }
 
 section#contacts div.banner{
+	height:80px;
 	background-color: #8EDAFC;
 }
 
@@ -75,6 +71,7 @@ section#contacts div.banner span{
 }
 
 section#contacts div#search-bar{
+	height:50px;
 	background-color:#F1F1F1;
 }
 
@@ -90,11 +87,11 @@ section#contacts  div.contact-info img{
 }
 
 section#contacts ul{
-	height: calc(100% - 196px);
+	height: calc(100% - 7vh - 130px);
 }
 
 section#contacts ul li{
-	display: none;
+	display:none;
 }
 
 section#contacts ul li:hover{
@@ -106,13 +103,9 @@ section#contacts ul{
 	overflow-y: scroll;
 }
 
-section#chat{
-	right:0;
-}
-
 section#contacts,
 section#chat{
-	position:absolute;
+	float:left;
 	height:95vh;
 	background-color: white;
 }
@@ -123,13 +116,14 @@ section#chat header{
 	background-color: #EAEAEA;
 }
 
-
-
-section#chat div.chat-history{
-	height:calc(100% - 131px);
-	background-image:url(../img/mine.jpg);
+section#chat{
+	width:65%;
 }
 
+section#chat div.chat-history{
+	height:calc(100% - 7vh - 67px);
+	background-image:url(../img/mine.jpg);
+}
 
 
 section#chat div.chat-history div.message-box{
@@ -157,6 +151,7 @@ section#chat div.chat-history div.message-box.sent{
 }
 
 section#chat div#send-message-bar{
+	height:67px;
 	background-color: #F3EEEA;
 }
 

@@ -19,105 +19,103 @@
 	<title>Boolzapp</title>
 </head>
 <body>
-	<div id="app">
-		<header></header>
-		<main>
-			<div class="container position-absolute start-0 end-0 bottom-0">
-				<div class="row justify-content-center">
-					<!-- contacts section -->
-					<section id="contacts" class="col-5 p-0">
-						<!-- user profile -->
-						<header>
-							<div class="d-flex justify-content-between px-3 border-right">
-								<div class="user-profile">
-									<img src="img/avatar_io.jpg" alt="name avatar image">
-									<h6 class="d-inline">Viviana</h6>
-								</div>
-								<div class="settings my-text-grey fs-5">
-									<i class="fa-solid fa-circle-notch"></i>
-									<i class="fa-solid fa-message mx-3"></i>
-									<i class="fa-solid fa-ellipsis-vertical"></i>
-								</div>
+	<main id="app">
+		<div class="my-container pt-4">
+			<div class="row justify-content-center clearfix">
+				<!-- contacts section -->
+				<section id="contacts" class="col-5 p-0">
+					<!-- user profile -->
+					<header>
+						<div class="d-flex justify-content-between px-3 border-right">
+							<div class="user-profile">
+								<img src="img/avatar_io.jpg" alt="name avatar image">
+								<h6 class="d-inline">Viviana</h6>
 							</div>
-						</header>
-						<!-- banner notification -->
-						<div class="banner p-3 d-flex">
-							<div id="bell-icon">
-								<i class="fa-solid fa-bell-slash"></i>
-							</div>
-							<div class="banner-text p-2 my-lh-small">
-								<h5>Ricevi notifiche di nuovi messaggi</h5>
-								<span class="text-decoration-underline my-fs-xsmall">Attiva notifiche desktop</span>
+							<div class="settings my-text-grey fs-5">
+								<i class="fa-solid fa-circle-notch"></i>
+								<i class="fa-solid fa-message mx-3"></i>
+								<i class="fa-solid fa-ellipsis-vertical"></i>
 							</div>
 						</div>
-						<!-- search bar -->
-						<div id="search-bar" class="p-2 input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text bg-white px-4 my-text-grey" id="lens">
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</span>
-							</div>
-							<input v-model="searchInput" class="form-control my-input" type="text" placeholder="Cerca o inizia una nuova chat">
+					</header>
+					<!-- banner notification -->
+					<div class="banner p-3 d-flex">
+						<div id="bell-icon">
+							<i class="fa-solid fa-bell-slash"></i>
 						</div>
-						<!-- contacts list -->
+						<div class="banner-text p-2 my-lh-small">
+							<h5>Ricevi notifiche di nuovi messaggi</h5>
+							<span class="text-decoration-underline my-fs-xsmall">Attiva notifiche desktop</span>
+						</div>
+					</div>
+					<!-- search bar -->
+					<div id="search-bar" class="p-2 input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text bg-white px-4 my-text-grey" id="lens">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</span>
+						</div>
+						<input v-model="searchInput" class="form-control my-input" type="text" placeholder="Cerca o inizia una nuova chat">
+					</div>
+					<!-- contacts list -->
 
-						<ul class="list-unstyled">
+					<ul class="list-unstyled">
 
-							<li :class="{ 'd-flex' : isValid(contact, searchInput) }" @click="updateChat(index)" v-for="(contact, index) in contacts" class="contact justify-content-between p-3 border-bottom">
-								<div class="contact-info my-lh-small d-flex">
-									<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
-									<div class="ms-4">
-										<h6>{{contact.name}}</h6>
-										<p class="my-text-grey my-fs-xsmall">Ultimo messaggio inviato</p>
-									</div>
-								</div>
-								<span class="my-text-grey my-fs-xsmall">12:00</span>
-							</li>
-						</ul>
-					</section>
-					<!-- / contacts section -->
-
-					<!-- current chat section -->
-					<section id="chat" class="col-7 p-0">
-						<header>
-							<!-- current contact info  -->
-							<div class="d-flex justify-content-between px-3">
-								<div class="contact-info d-flex align-items-center">
-									<img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="`${contacts[currentIndex].name} image`">
-									<div class="ms-4 my-lh-small">
-										<h6>{{contacts[currentIndex].name}}</h6>
-										<p class="my-text-grey my-fs-xsmall">Ultimo accesso</p>
-									</div>
-								</div>
-								<!-- chat settings -->
-								<div class="settings my-text-grey fs-5">
-									<i class="fa-solid fa-magnifying-glass"></i>
-									<i class="fa-solid fa-paperclip mx-3"></i>
-									<i class="fa-solid fa-ellipsis-vertical"></i>
+						<li :class="{ 'd-flex' : isValid(contact, searchInput) }" @click="updateChat(index)" v-for="(contact, index) in contacts" class="contact justify-content-between p-3 border-bottom">
+							<div class="contact-info my-lh-small d-flex">
+								<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
+								<div class="ms-4">
+									<h6>{{contact.name}}</h6>
+									<p class="my-text-grey my-fs-xsmall">Ultimo messaggio inviato</p>
 								</div>
 							</div>
-						</header>
-						<!-- current chat history -->
-						<div  class="chat-history p-5">
-							<div v-for="el in contacts[currentIndex].messages" class="message clearfix">
-								<div :class="(el.status === 'sent') ? 'sent' : 'received' " class="message-box position-relative">
-									<p>{{el.message}}</p>
-									<span class="message-time position-absolute">{{el.date}}</span>
+							<span class="my-text-grey my-fs-xsmall">12:00</span>
+						</li>
+					</ul>
+
+				</section>
+				<!-- / contacts section -->
+
+				<!-- current chat section -->
+				<section id="chat" class="col-7 p-0">
+					<header>
+						<!-- current contact info  -->
+						<div class="d-flex justify-content-between px-3">
+							<div class="contact-info d-flex align-items-center">
+								<img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="`${contacts[currentIndex].name} image`">
+								<div class="ms-4 my-lh-small">
+									<h6>{{contacts[currentIndex].name}}</h6>
+									<p class="my-text-grey my-fs-xsmall">Ultimo accesso</p>
 								</div>
 							</div>
+							<!-- chat settings -->
+							<div class="settings my-text-grey fs-5">
+								<i class="fa-solid fa-magnifying-glass"></i>
+								<i class="fa-solid fa-paperclip mx-3"></i>
+								<i class="fa-solid fa-ellipsis-vertical"></i>
+							</div>
 						</div>
-						
-						<!-- new message input -->
-						<div id="send-message-bar" class="p-2 d-flex align-items-center text-secondary">
-							<i class="fa-solid fa-face-smile mx-4  fs-5"></i>
-							<input @keydown.enter="sendNewMessage(newMessage, currentIndex)" v-model="newMessage" class="form-control my-input" type="text" placeholder="Scrivi un messaggio">
-							<i class="fa-solid fa-microphone mx-4 fs-5"></i>
+					</header>
+					<!-- current chat history -->
+					<div  class="chat-history p-5">
+						<div v-for="el in contacts[currentIndex].messages" class="message clearfix">
+							<div :class="(el.status === 'sent') ? 'sent' : 'received' " class="message-box position-relative">
+								<p>{{el.message}}</p>
+								<span class="message-time position-absolute">{{el.date}}</span>
+							</div>
 						</div>
-					</section>
-				</div>
+					</div>
+					
+					<!-- new message input -->
+					<div id="send-message-bar" class="p-2 d-flex align-items-center text-secondary">
+						<i class="fa-solid fa-face-smile mx-4  fs-5"></i>
+						<input @keydown.enter="sendNewMessage(newMessage, currentIndex)" v-model="newMessage" class="form-control my-input" type="text" placeholder="Scrivi un messaggio">
+						<i class="fa-solid fa-microphone mx-4 fs-5"></i>
+					</div>
+				</section>
 			</div>
-		</main>
-	</div>
+		</div>
+	</main>
 	<script src="js/main.js"></script>
 </body>
 </html>
