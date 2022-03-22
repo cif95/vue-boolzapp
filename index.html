@@ -61,7 +61,8 @@
 						</div>
 						<!-- contacts list -->
 
-						<ul class="contacts list-unstyled">
+						<ul class="list-unstyled">
+
 							<li :class="{ 'd-flex' : isValid(contact, searchInput) }" @click="updateChat(index)" v-for="(contact, index) in contacts" class="contact justify-content-between p-3 border-bottom">
 								<div class="contact-info my-lh-small d-flex">
 									<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
@@ -96,16 +97,6 @@
 								</div>
 							</div>
 						</header>
-
-						<!-- <div v-for="(contact, index) in contacts">
-							<div :class="{ 'd-block' : isActive(index) }" v-for="element in contact.messages" class="message clearfix">
-								<div class="message-box position-relative received" :class="(element.status === 'sent') ? 'sent' : 'received' " >
-									<p>{{element.message}}</p>
-									<span class="message-time position-absolute">{{element.date}}</span>
-								</div>
-							</div>
-						</div> -->
-
 						<!-- current chat history -->
 						<div  class="chat-history p-5">
 							<div v-for="el in contacts[currentIndex].messages" class="message clearfix">

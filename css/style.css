@@ -93,9 +93,9 @@ section#contacts ul{
 	height: calc(100% - 196px);
 }
 
-/* section#contacts ul li{
+section#contacts ul li{
 	display: none;
-} */
+}
 
 section#contacts ul li:hover{
 	background-color: #E9EBEB;
@@ -123,10 +123,13 @@ section#chat header{
 	background-color: #EAEAEA;
 }
 
+
+
 section#chat div.chat-history{
 	height:calc(100% - 131px);
 	background-image:url(../img/mine.jpg);
 }
+
 
 
 section#chat div.chat-history div.message-box{

@@ -212,9 +212,6 @@ const app = new Vue({
 			}
 		},
 
-		isActive(index){
-			if (index == this.currentIndex) return true;
-		},
 
 		isValid(element, string){
 			if (string == '' || element.name.toLowerCase().includes(string) ) return true 
