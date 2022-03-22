@@ -14,7 +14,6 @@
 // 	Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
 
 
-
 const app = new Vue({
 	el:'#app',
 	data: {
@@ -186,10 +185,12 @@ const app = new Vue({
 		newMessage:''
 	},
 	methods: {
-		updateChat(index){
+		updateContact(index){
 			this.currentIndex = index;
 		},
-
+		isActive(index){
+			if (index == this.currentIndex ) return true
+		},
 		sendNewMessage(string, index){
 			let messagesArray = this.contacts[index].messages;
 			const newMsg = {
@@ -214,6 +215,16 @@ const app = new Vue({
 
 		isValid(element, string){
 			if (string == '' || element.name.toLowerCase().includes(string) || element.name.toUpperCase().includes(string) ) return true 
+		},
+
+		toggleDropdown(event){
+			event.target.parentNode.lastChild.classList.toggle('d-none');
+		},
+		closeDropdown(event){
+			event.target.classList.add('d-none');
+		},
+		deleteMessage(event){
+			event.target.parentNode.parentElement.classList.add('d-none');
 		}
 	}
 });
