@@ -11,7 +11,7 @@
 	<!-- google font -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"> 
 	<!-- vue js -->
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 	<!-- custom css stylesheet  -->
@@ -59,15 +59,15 @@
 					</div>
 					<!-- contacts list -->
 					<ul id="contacts" class="list-unstyled">
-						<li :class="{ 'd-flex' : isNameValid(contact, searchContact), 'active' : isActive(index) }" @click="updateContact(index)" v-for="(contact, index) in contacts" class="contact justify-content-between p-3 border-bottom">
+						<li :class="{ 'd-flex' : isNameValid(contact, searchContact), 'active' : isActive(index) }" @click="updateContact(index)" v-for="(contact, index) in contacts" class="contact justify-content-between p-2 border-bottom my-fs-xsmall">
 							<div class="contact-info d-flex">
 								<img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name} image`">
 								<div class="ms-4">
 									<h6 class="m-0">{{contact.name}}</h6>
-									<p class="my-text-grey my-fs-xsmall">{{contact.messages[contact.messages.length-1].message}}</p>
+									<p class="text-secondary">{{contact.messages[contact.messages.length-1].message}}</p>
 								</div>
 							</div>
-							<span class="my-text-grey my-fs-xxsmall">{{contact.messages[contact.messages.length-1].date.substring(11,16)}}</span>
+							<span class="text-secondary my-fs-xsmall">{{contact.messages[contact.messages.length-1].date.substring(11,16)}}</span>
 						</li>
 					</ul>
 				</section>
@@ -81,7 +81,7 @@
 								<img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="`${contacts[currentIndex].name} image`">
 								<div class="ms-4 my-lh-small">
 									<h6>{{contacts[currentIndex].name}}</h6>
-									<p class="my-text-grey my-fs-xsmall m-0">Ultimo accesso oggi alle 12:00</p>
+									<p class="text-secondary my-fs-xsmall m-0">Ultimo accesso oggi alle 12:00</p>
 								</div>
 							</div>
 							<!-- chat settings -->
@@ -100,10 +100,10 @@
 						</div>
 						<div v-for="(el, i) in contacts[currentIndex].messages" class="message clearfix" :class="(isMessageValid(el, searchMessage)) ? 'd-block' : 'd-none'">
 							<div :class="(el.status === 'sent') ? 'sent' : 'received' " class="message-box position-relative">
-								<i @click="toggleDropdown" class="my-dropdown-icon position-absolute text-secondary fa-solid fa-chevron-down"></i>
+								<i @click="openDropdown" class="my-dropdown-icon position-absolute text-secondary fa-solid fa-chevron-down"></i>
 								<p class="m-0">
 									{{el.message}}
-									<sub class="message-time ms-2">{{el.date.substring(11,16)}}</sub>
+									<span class="message-time ms-1 position-absolute">{{el.date.substring(11,16)}}</span>
 								</p>
 								<ul @mouseleave="closeDropdown" class="my-dropdown-menu d-none">
 									<li>Info</li>
@@ -114,7 +114,7 @@
 					</div>
 					<!-- new message input -->
 					<div id="send-message-bar" class="p-2 d-flex align-items-center text-secondary">
-						<i class="fa-solid fa-face-smile mx-4 fs-5"></i>
+						<i class="fa-regular fa-face-smile mx-4 fs-5"></i>
 						<input @keydown.enter="sendNewMessage(contacts, newMessage, currentIndex)" v-model="newMessage" class="form-control my-input" type="text" placeholder="Scrivi un messaggio">
 						<i class="fa-solid fa-microphone mx-4 fs-5"></i>
 					</div>
@@ -123,7 +123,6 @@
 		</div>
 	</main>
 	<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-	<script src="https://unpkg.com/dayjs/plugin/customParseFormat.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>

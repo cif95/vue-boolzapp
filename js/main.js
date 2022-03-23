@@ -158,23 +158,67 @@ const app = new Vue({
 				],
 			},
 			{
-				name: 'Davide',
+				name: 'Silvia',
 				avatar: '_8',
 				visible: true,
 				messages: [
 					{
+							date: '10/01/2020 10:30:55',
+							message: 'Ciao, come stai?',
+							status: 'received'
+					},
+					{
+							date: '10/01/2020 10:45:00',
+							message: 'Alla grande! Qui in Svizzera si sta da dio.. tu piuttosto?',
+							status: 'sent'
+					},
+					{
+							date: '10/01/2020 11:51:00',
+							message: 'Non mi posso lamentare!',
+							status: 'received'
+					}
+				],
+			},
+			{
+				name: 'Valeria',
+				avatar: '_9',
+				visible: true,
+				messages: [
+					{
+							date: '10/01/2020 18:30:55',
+							message: 'Hola Chica! Norcineria stasera?',
+							status: 'received'
+					},
+					{
+							date: '10/01/2020 18:50:00',
+							message: 'Yess! per le 22:30 ok?',
+							status: 'sent'
+					},
+					{
+							date: '10/01/2020 18:51:00',
+							message: 'OK!!',
+							status: 'received'
+					}
+				],
+			},
+			{
+				name: 'Roberta',
+				avatar: '_10',
+				visible: true,
+				messages: [
+					{
 							date: '10/01/2020 15:30:55',
-							message: 'Ciao, andiamo a mangiare la pizza stasera?',
+							message: 'Quando ci facciamo un viaggio?',
 							status: 'received'
 					},
 					{
 							date: '10/01/2020 15:50:00',
-							message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+							message: 'Il prima possibile..',
 							status: 'sent'
 					},
 					{
 							date: '10/01/2020 15:51:00',
-							message: 'OK!!',
+							message: 'Ci conto!',
 							status: 'received'
 					}
 				],
@@ -225,7 +269,7 @@ const app = new Vue({
 			if (string == '' || element.message.toLowerCase().includes(string) || element.message.toUpperCase().includes(string) ) return true 
 		},
 		// function that toggles display-none of dropdowns (as brother of event target)
-		toggleDropdown(event){
+		openDropdown(event){
 			event.target.parentNode.lastChild.classList.toggle('d-none');
 		},
 		// function that adds display-none of dropdowns (as event target)
@@ -242,13 +286,6 @@ const app = new Vue({
 			if (this.isClicked) return true;
 		}
 	}
-		// 
-	// mounted(){
-	// 	this.contacts.forEach(e => e.messages.forEach( e => {
-	//			 if ( e.date.isValid()) e.date = dayjs(e.date).format('hh:mm');
-	// 	} 
-	// ));
-	// }
 });
 
 
