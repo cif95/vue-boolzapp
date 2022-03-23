@@ -180,7 +180,7 @@ const app = new Vue({
 				],
 			}
 		],
-		currentIndex: 0,
+		currentIndex:0,
 		searchContact:'',
 		searchMessage:'',
 		newMessage:'',
@@ -193,20 +193,20 @@ const app = new Vue({
 		isActive(index){
 			if (index == this.currentIndex ) return true
 		},
-		sendNewMessage(string, index){
-			let messagesArray = this.contacts[index].messages;
+		sendNewMessage(contacts,string, index){
+			let messagesArray = contacts[index].messages;
 			const newMsg = {
-				date: '10/01/2020 15:51:00',
+				date: dayjs().format('DD-MM-YYYY') + ' ' + dayjs().format('hh') + ':' + dayjs().format('mm'),
 				message: string,
 				status: 'sent'
-			}
-			if ( string !== '') {
+			};
+			if ( string.trim() !== '') {
 				messagesArray.push(newMsg);
 				const answer = {
-					date: '10/01/2020 15:51:01',
+					date: dayjs().format('DD-MM-YYYY') + ' ' + dayjs().format('hh') + ':' + dayjs().format('mm'),
 					message: 'Ok',
 					status: 'received'
-				}
+				};
 	
 				setTimeout(function(){
 					messagesArray.push(answer);

@@ -134,7 +134,9 @@ section#chat div.chat-history{
 
 
 section#chat div.chat-history div.message-box{
-	width:40%;
+	max-width:40%;
+	width: fit-content;
+	word-wrap: break-word;
 	font-size:.9rem;
 	padding:1rem;
 	margin-bottom:.7rem;
@@ -178,10 +180,8 @@ div.message-box i.my-dropdown-icon{
 }
 
 div.message-box span.message-time{
-	font-size:.65rem;
+	font-size:.55rem;
 	color:grey;
-	right:.5rem;
-	bottom:.1rem;
 }
 
 div.message-box.received{

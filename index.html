@@ -99,7 +99,7 @@
 							<div :class="(el.status === 'sent') ? 'sent' : 'received' " class="message-box position-relative">
 								<i @click="toggleDropdown" class="my-dropdown-icon position-absolute text-secondary fa-solid fa-chevron-down"></i>
 								<p>{{el.message}}</p>
-								<span class="message-time position-absolute">{{el.date}}</span>
+								<span class="message-time">{{el.date}}</span>
 								<ul @mouseleave="closeDropdown" class="my-dropdown-menu d-none">
 									<li>Info</li>
 									<li @click="deleteMessage">Delete message</li>
@@ -110,13 +110,15 @@
 					<!-- new message input -->
 					<div id="send-message-bar" class="p-2 d-flex align-items-center text-secondary">
 						<i class="fa-solid fa-face-smile mx-4 fs-5"></i>
-						<input @keydown.enter="sendNewMessage(newMessage, currentIndex)" v-model="newMessage" class="form-control my-input" type="text" placeholder="Scrivi un messaggio">
+						<input @keydown.enter="sendNewMessage(contacts, newMessage, currentIndex)" v-model="newMessage" class="form-control my-input" type="text" placeholder="Scrivi un messaggio">
 						<i class="fa-solid fa-microphone mx-4 fs-5"></i>
 					</div>
 				</section>
 			</div>
 		</div>
 	</main>
+	<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>	
+	<script src="https://unpkg.com/dayjs@1.8.21/locale/zh-cn.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
