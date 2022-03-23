@@ -180,11 +180,12 @@ const app = new Vue({
 				],
 			}
 		],
-		currentIndex:0,
+		currentIndex: 0,
 		searchContact:'',
 		searchMessage:'',
 		newMessage:'',
 		isClicked: false,
+		isSent: false
 	},
 	methods: {
 		updateContact(index){
@@ -196,22 +197,23 @@ const app = new Vue({
 		sendNewMessage(contacts,string, index){
 			let messagesArray = contacts[index].messages;
 			const newMsg = {
-				date: dayjs().format('DD-MM-YYYY') + ' ' + dayjs().format('hh') + ':' + dayjs().format('mm'),
+				date: dayjs().format('DD/MM/YYYY hh:mm:s'),
 				message: string,
 				status: 'sent'
 			};
 			if ( string.trim() !== '') {
+				isSent = true;
 				messagesArray.push(newMsg);
 				const answer = {
-					date: dayjs().format('DD-MM-YYYY') + ' ' + dayjs().format('hh') + ':' + dayjs().format('mm'),
+					date: dayjs().format('DD/MM/YYYY hh:mm:s'),
 					message: 'Ok',
 					status: 'received'
 				};
-	
 				setTimeout(function(){
 					messagesArray.push(answer);
 				}, 1000);
 				this.newMessage = '';
+				
 			}
 		},
 		// function that checks and return true if a string matches with a contact name
@@ -240,6 +242,13 @@ const app = new Vue({
 			if (this.isClicked) return true;
 		}
 	}
+		// 
+	// mounted(){
+	// 	this.contacts.forEach(e => e.messages.forEach( e => {
+	//			 if ( e.date.isValid()) e.date = dayjs(e.date).format('hh:mm');
+	// 	} 
+	// ));
+	// }
 });
 
 

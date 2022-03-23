@@ -13,7 +13,11 @@ body{
 }
 
 .my-fs-xsmall{
-	font-size:.8rem;
+	font-size:.85rem;
+}
+
+.my-fs-xxsmall{
+	font-size:.6rem;
 }
 
 .my-input{
@@ -39,7 +43,7 @@ main header{
 }
 
 section#sidebar{
-	width:35%;
+	width:30%;
 }
 
 section#sidebar div.banner{
@@ -118,9 +122,8 @@ section#chat header{
 	background-color: #EAEAEA;
 }
 
-
 section#chat{
-	width:65%;
+	width:70%;
 }
 
 section#chat header{
@@ -132,15 +135,24 @@ section#chat div.chat-history{
 	background-image:url(../img/mine.jpg);
 }
 
+section#chat div.chat-history div.date{
+	margin:0 auto;
+	padding:.5rem;
+	background-color: rgba(255, 255, 255, 0.596);
+}
+
+section#chat div.chat-history div.date,
+section#chat div.chat-history div.message-box{
+	font-size:.9rem;
+	width: fit-content;
+	border-radius:10px;
+}
 
 section#chat div.chat-history div.message-box{
-	max-width:40%;
-	width: fit-content;
-	word-wrap: break-word;
-	font-size:.9rem;
+	max-width:40%;	
 	padding:1rem;
 	margin-bottom:.7rem;
-	border-radius:10px;
+	word-wrap: break-word;
 }
 
 div.message-box:hover i.my-dropdown-icon{
@@ -149,7 +161,12 @@ div.message-box:hover i.my-dropdown-icon{
 
 div.message-box i.my-dropdown-icon{
 	display: none;
+	z-index: 1;
 	right:.7rem;
+	padding:.4rem;
+	border-radius: 50%;
+	box-shadow: 1px 1px 2px grey;
+	background-color: white;
 }
 
 div.message-box ul.my-dropdown-menu{
@@ -179,10 +196,11 @@ div.message-box i.my-dropdown-icon{
 	cursor:pointer;
 }
 
-div.message-box span.message-time{
+div.message-box sub.message-time{
 	font-size:.55rem;
 	color:grey;
 }
+
 
 div.message-box.received{
 	background-color: white;

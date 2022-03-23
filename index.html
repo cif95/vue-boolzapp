@@ -43,8 +43,8 @@
 						<div id="bell-icon">
 							<i class="fa-solid fa-bell-slash"></i>
 						</div>
-						<div class="banner-text p-2 my-lh-small">
-							<h5>Ricevi notifiche di nuovi messaggi</h5>
+						<div class="banner-text ps-2 my-lh-small">
+							<h6>Ricevi notifiche di nuovi messaggi</h6>
 							<span class="text-decoration-underline my-fs-xsmall">Attiva notifiche desktop</span>
 						</div>
 					</div>
@@ -67,7 +67,7 @@
 									<p class="my-text-grey my-fs-xsmall">{{contact.messages[contact.messages.length-1].message}}</p>
 								</div>
 							</div>
-							<span class="my-text-grey my-fs-xsmall">{{contact.messages[contact.messages.length-1].date}}</span>
+							<span class="my-text-grey my-fs-xxsmall">{{contact.messages[contact.messages.length-1].date.substring(11,16)}}</span>
 						</li>
 					</ul>
 				</section>
@@ -95,11 +95,16 @@
 					</header>
 					<!-- current chat history -->
 					<div  class="chat-history p-5">
+						<div class="message clearfix">
+							<div class="date">{{contacts[currentIndex].messages[0].date.substring(0,10)}}</div>
+						</div>
 						<div v-for="(el, i) in contacts[currentIndex].messages" class="message clearfix" :class="(isMessageValid(el, searchMessage)) ? 'd-block' : 'd-none'">
 							<div :class="(el.status === 'sent') ? 'sent' : 'received' " class="message-box position-relative">
 								<i @click="toggleDropdown" class="my-dropdown-icon position-absolute text-secondary fa-solid fa-chevron-down"></i>
-								<p>{{el.message}}</p>
-								<span class="message-time">{{el.date}}</span>
+								<p class="m-0">
+									{{el.message}}
+									<sub class="message-time ms-2">{{el.date.substring(11,16)}}</sub>
+								</p>
 								<ul @mouseleave="closeDropdown" class="my-dropdown-menu d-none">
 									<li>Info</li>
 									<li @click="deleteMessage">Delete message</li>
@@ -117,8 +122,8 @@
 			</div>
 		</div>
 	</main>
-	<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>	
-	<script src="https://unpkg.com/dayjs@1.8.21/locale/zh-cn.js"></script>
+	<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+	<script src="https://unpkg.com/dayjs/plugin/customParseFormat.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
